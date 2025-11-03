@@ -30,4 +30,15 @@ public class CustomerRepository {
         preparedStatement.executeUpdate();
 
     }
+
+    public void updateCustomer(String id, Customer customer) throws SQLException {
+        Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_reservation_db","root","1234");
+        PreparedStatement preparedStatement= connection.prepareStatement("UPDATE customers SET name=?,phone=?,city=? WHERE customer_id=?");
+        preparedStatement.setObject(1,customer.getName());
+        preparedStatement.setObject(2,customer.getPhone());
+        preparedStatement.setObject(3,customer.getCity());
+        preparedStatement.setObject(4,id);
+
+        preparedStatement.executeUpdate();
+    }
 }

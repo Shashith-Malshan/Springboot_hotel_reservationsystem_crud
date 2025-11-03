@@ -41,6 +41,12 @@ public class CustomerController {
 
     }
 
+    @PutMapping("{id}")
+    public String updateCustomer(@PathVariable String id,@RequestBody Customer customer){
+        customerService.updateCustomer(id,customer);
+        return "updated";
+    }
+
 
 
 

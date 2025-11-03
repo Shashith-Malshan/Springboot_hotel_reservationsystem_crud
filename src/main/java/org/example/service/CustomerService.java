@@ -47,4 +47,12 @@ public class CustomerService {
             throw new RuntimeException(e);
         }
     }
+
+    public void updateCustomer(String id, Customer customer) {
+        try {
+            customerRepository.updateCustomer(id,customer);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
