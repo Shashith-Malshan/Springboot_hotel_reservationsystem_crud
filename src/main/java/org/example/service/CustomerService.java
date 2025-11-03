@@ -39,4 +39,12 @@ public class CustomerService {
             throw new RuntimeException(e);
         }
     }
+
+    public void addCustomer(Customer customer) {
+        try {
+            customerRepository.addCustomer(customer);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

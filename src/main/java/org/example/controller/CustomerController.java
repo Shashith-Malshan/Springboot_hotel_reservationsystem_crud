@@ -28,7 +28,11 @@ public class CustomerController {
         return null;
     }
 
-    @PutMapping
+    @PostMapping("add")
+    public String addCustomer(@RequestBody Customer customer){
+        customerService.addCustomer(customer);
+        return "Added";
+    }
 
     @DeleteMapping("{id}")
     public String deleteCustomer(@PathVariable String id){
